@@ -1,0 +1,79 @@
+---
+layout: default
+---
+
+<div id="page-menu-toggler" class="mobile-only"
+  onclick="document.getElementById('page-container').classList.toggle('show-menu');
+           document.getElementById('page-menu-toggler').classList.toggle('opened');">
+  <span class="fas fa-chevron-right"></span>
+  <span>Navigation</span>
+</div>
+
+<div id="page-container" class="content">
+  <div id="page-menu">
+
+      {% assign kb_techs = site.kb | group_by : "tech" | sort: "name" %}
+
+      {% for kb_tech in kb_techs %}
+        
+        <nav class="page-nav-group">
+          
+          {% comment %} User friendly name stored in data {% endcomment %}
+          
+          <h4>{{ site.data.kb[kb_tech.name] }}</h4>
+
+          <div class="page-nav-links">
+            {% for kb_item in kb_tech.items %}
+          
+            <a href="{{ kb_item.url | relative_url }}" 
+            class="page-nav-link {% if page.url == kb_item.url %}active{% endif %}">
+              {{ kb_item.title }}
+            </a>
+          
+            {% endfor %}
+          </div>
+        </nav>
+      {% endfor %}
+
+  </div>
+
+  <div id="page-content">
+    <h1>{{ page.title }}</h1>
+
+    {{ content }}
+
+    <hr />
+
+    {% if page.mentioned.size %}
+      <p>Sources:</p>
+      <ul>
+        {% for source in page.sources %} 
+        <!-- <li>{{ source | markdownify }}</li> -->
+          <li><a href="{{ source.link }}">{{ source.name }}</a></li>
+        {% endfor %} 
+      </ul>
+    {% endif %}
+
+    <div />
+
+    {% for tag in page.tags %} 
+    <span class="article-tag">{{ tag }}</span> 
+    {% endfor %} 
+
+    <div />
+
+    {% if page.mentioned.size %}
+      <p>Mentionned:</p>
+      <ul>
+        {% for post_id in page.mentioned %} 
+          {% assign post = site.posts | where: "id", post_id | first %} 
+          {% if post %}
+          <li>
+            <a href="{{ post.url | relative_url }}" >{{ post.date | date_to_string }} {{ post.title }}</a >
+          </li>
+          {% endif %} 
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+</div>

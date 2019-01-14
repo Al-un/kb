@@ -1,0 +1,17 @@
+<nav class="blog-pagination">
+  {% if paginator.previous_page_path %}
+  <a href="{{ paginator.previous_page_path | relative_url }}/" class="blog-prev">
+    Prev
+  </a>
+  {% endif %}
+
+  <span class="blog-current-page">
+    {{ paginator.page }} / {{ paginator.total_pages }}
+  </span>
+
+  {% if paginator.next_page_path %}
+  <a href="{{ paginator.next_page_path | relative_url }}/" class="blog-next">
+    Next
+  </a>
+  {% endif %}
+</nav>

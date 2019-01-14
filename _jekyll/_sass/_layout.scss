@@ -1,0 +1,184 @@
+@import "shared/theme";
+@import "shared/mixins";
+/**
+ * Global stuff
+ */
+
+@font-face {
+    font-family: "NotoSans";
+    src: url("../fonts/NotoSans-Regular.ttf");
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    font-family: "NotoSans", sans-serif;
+    background-color: $bodyBg;
+    color: $bodyFg;
+}
+
+/**
+ * Related to website layout. Layout has
+ * - fixed header
+ *  - High level navigation
+ * - main content
+ *  - lower level navigation will be done by toggling menu on mobile
+ * - footer pushed down the page if content is not long enough
+ */
+
+header.container {
+    position: fixed;
+    color: $headerFg;
+    height: $headerHeight;
+    width: 100%;
+    background-color: $headerBg;
+    .nav-menu {
+        a {
+            color: $headerFg;
+            text-align: center;
+            padding: 10px 20px;
+        }
+    }
+    display: flex;
+    align-items: center;
+}
+
+div#main-container {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - #{$headerHeight});
+    margin-top: $headerHeight;
+    main.container {
+        flex: 1;
+    }
+    footer.container {
+        background-color: $colorPrimary;
+    }
+}
+
+// wrapped by header.container, footer.container, main.container
+.content {
+    width: 98%;
+    max-width: $contentWidth;
+    margin: auto;
+}
+
+/**
+ * Some layout requires a navigation menu:
+ *  - menu is on the left (stricky) except on mobile where it is toggled
+ *  - content is as expected
+ */
+
+// -------------------- Container
+#page-container {
+    display: flex;
+    flex-direction: column;
+    /* Desktop only */
+    @include desktop {
+        flex-direction: row;
+    }
+    /* Mobile only: menu is toggled */
+    &.show-menu {
+        #page-menu {
+            display: block;
+        }
+        #page-content {
+            display: none;
+        }
+    }
+}
+
+// -------------------- Navigation
+#page-menu-toggler {
+    background-color: $colorSecondary;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    box-sizing: border-box;
+    padding: 0px 20px;
+    &:hover {
+        cursor: pointer;
+    }
+    /* Icon */
+    .fas {
+        margin-right: 8px;
+        transition: transform 0.2s;
+        transition-timing-function: ease-in-out;
+    }
+    /* to alternate with display: flex */
+    @include desktop {
+        & {
+            display: none;
+        }
+    }
+    /* toggled menu */
+    &.opened {
+        .fas {
+            transform: rotate(90deg);
+        }
+    }
+}
+
+#page-menu {
+    display: none;
+    /* Mobile first */
+    @include desktop {
+        display: block;
+        width: $subMenuWidth;
+        position: sticky;
+        box-sizing: border-box;
+        align-self: flex-start;
+        max-height: calc(100vh - #{$headerHeight});
+        overflow-y: scroll;
+        top: $headerHeight;
+    }
+    /* A group of link with a title (h4) and links */
+    .page-nav-group {
+        /* To look better on mobile */
+        padding: 0 10px;
+        &:first-child {
+            @include desktop {
+                margin-top: 40px;
+            }
+        }
+        /* group title */
+        h4 {
+            margin: 8px auto;
+        }
+        /* links container */
+        .page-nav-links {
+            padding: 0 10px;
+        }
+        /* a single link */
+        .page-nav-link {
+            padding: 4px 0px;
+            color: $bodyFg;
+            &:hover {
+                color: $colorPrimary;
+            }
+            &.active {
+                color: $colorPrimary;
+                font-weight: bold;
+                &::before {
+                    content: "> ";
+                }
+            }
+            display: block;
+        }
+    }
+}
+
+#page-content {
+    flex: 1;
+    @include desktop {
+        max-width: calc(#{$contentWidth} - #{$subMenuWidth});
+        padding: 1rem 3rem 200px;
+    }
+    box-sizing: border-box;
+    padding: 2rem 1rem;
+}

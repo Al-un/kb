@@ -1,0 +1,77 @@
+@import "shared/theme";
+@import "shared/mixins";
+/**
+ * Commong tags
+ */
+
+// -------------------- Text
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: $colorPrimary;
+}
+
+h1 {
+    width: 100%;
+    border-bottom: 1px solid $colorPrimary;
+}
+
+a {
+    text-decoration: none;
+    color: $colorPrimary;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+// matching the ">" symbol in markdown
+blockquote {
+    background: lightgoldenrodyellow;
+    border-left: 2px solid orange;
+    padding: 8px 16px;
+}
+
+// -------------------- Code
+pre {
+    padding: 16px;
+    border-radius: 40px;
+}
+
+// -------------------- Table
+table {
+    width: 100%;
+    border-collapse: collapse;
+    td,
+    th {
+        margin: 0;
+        padding: 6px 12px;
+        border: 1px solid $colorPrimary;
+    }
+    th {
+        background-color: $colorPrimary;
+    }
+    tr:nth-child(even) {
+        background: #dedede;
+    }
+}
+
+// -------------------- List
+li {
+    margin: 8px auto;
+}
+
+// -------------------- Responsive
+.mobile-only {
+    @include desktop {
+        display: none;
+    }
+}
+
+.desktop-only {
+    @include mobile {
+        display: none;
+    }
+}

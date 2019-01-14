@@ -1,0 +1,21 @@
+// https://daviseford.com/blog/2018/01/10/scss-responsive-media-query-mixins.html
+// Screen size variables
+$screen-xs-min: 425; // Tiny phones
+$screen-sm-min: 576; // Small tablets and large smartphones (landscape view)
+$screen-md-min: 768; // Small tablets (portrait view)
+$screen-lg-min: 992; // Tablets and small desktops
+$screen-xl-min: 1200; // Large tablets and desktops
+// Mixins
+// Small devices
+@mixin mobile {
+    @media (max-width: #{$screen-sm-min}px) {
+        @content;
+    }
+}
+
+// Big devices
+@mixin desktop {
+    @media (min-width: #{$screen-sm-min+1}px) {
+        @content;
+    }
+}

@@ -1,0 +1,17 @@
+# Define here all collections for KB and its name as name formatting
+# may differ from collection name.
+# Do not forget to declare the collection in _config.yml
+aws: AWS
+circleci: CircleCI
+css: CSS / SASS
+git: Git
+javascript: JavaScript
+jekyll: Jekyll
+markdown: Markdown
+mysql: MySQL
+powershell: PowerShell
+rails: Rails
+react: ReactJS
+travis: Travis CI
+vscode: Visual Studio Code
+vue: Vue.js

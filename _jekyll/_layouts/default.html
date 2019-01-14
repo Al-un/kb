@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{{ page.title }}</title>
+
+    <!-- Styles -->
+    <link
+      rel="stylesheet"
+      href="{{ 'assets/styles/styles.css' | relative_url }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ 'assets/styles/syntax-monokai.css' | relative_url }}"
+    />
+    <!-- FontAwesome -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+      integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <header class="container">
+      <div class="content">
+        <div class="nav-menu">
+          {% for nav_link in site.data.navigation %}
+          <a href="{{ nav_link.url | relative_url }}">{{ nav_link.title }}</a>
+          {% endfor %}
+        </div>
+      </div>
+    </header>
+
+    <div id="main-container">
+      <main class="container">
+        <!-- Each sub-layout must have a "content" class -->
+        {{ content }}
+      </main>
+
+      <footer class="container"><div class="content"></div></footer>
+    </div>
+  </body>
+</html>

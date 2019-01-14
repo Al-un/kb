@@ -1,0 +1,9 @@
+# Jekyll
+_site/
+.sass-cache
+
+# node
+node_modules/
+
+# Misc files
+test.md

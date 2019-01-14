@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "surge": "^0.20.1"
+  },
+  "scripts": {
+    "build": "bundle exec jekyll build",
+    "serve": "bundle exec jekyll serve",
+    "deploy": "surge"
+  }
+}

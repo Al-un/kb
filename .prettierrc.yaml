@@ -1,0 +1,7 @@
+# https://prettier.io/docs/en/options.html
+#
+tabWidth: 2
+# { foo: bar } instead of {foo: bar}
+bracketSpacing: true
+# put the ">" symbol on the same linke
+jsxBracketSameLine: true

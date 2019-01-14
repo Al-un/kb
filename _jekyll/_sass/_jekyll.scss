@@ -1,0 +1,10 @@
+/**
+ * Override jekyll default
+ */
+
+@import "shared/theme";
+blockquote {
+    background-color: lightgoldenrodyellow; // default
+    color: #353012;
+    border-left-width: 6px;
+}

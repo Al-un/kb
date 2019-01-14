@@ -1,0 +1,9 @@
+@import "shared/theme";
+@import "shared/mixins";
+// -------------------- Article
+.article-tag {
+    padding: 8px 16px;
+    box-sizing: border-box;
+    border: 1px solid $colorPrimary;
+    border-radius: 12px;
+}

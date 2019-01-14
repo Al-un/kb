@@ -1,0 +1,11 @@
+# All navigation links for the topbar menu
+- title: KB
+  url: /
+  description: >-
+    Articles to gather how I did or solved stuff. Articles are sorted by technologies
+    and topics.
+- title: Blog
+  url: /blog/
+  description: >-
+    Articles history. Apart from punctual pure blog post, it mainly tracks changes
+    of articles

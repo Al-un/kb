@@ -1,0 +1,22 @@
+---
+title: KB | Blog
+---
+
+<h1>KB blog</h1>
+
+{% include blog_paginator.html %}
+
+<ul>
+  {% for post in paginator.posts %}
+  <li>
+    <h4>
+      <a href="{{ post.url | relative_url }}">
+        {{ post.date | date_to_string }} | {{ post.title }}
+      </a>
+    </h4>
+    <p>{{ post.excerpt }}</p>
+  </li>
+  {% endfor %}
+</ul>
+
+{% include blog_paginator.html %}

@@ -1,0 +1,25 @@
+---
+layout: default
+---
+
+<div class="content">
+  <h1>{{ page.title }}</h1>
+
+  {{ content }}
+
+  <hr />
+
+  {% if page.articles.size %}
+  <p>Articles:</p>
+  <ul>    
+    {% for art_path in page.articles %} 
+      {% for collection in site.collections %}
+        {% assign article = collection.docs | where: "path", art_path | first %} 
+        {% if article %}
+        <li><a href="{{ article.url | relative_url }}">{{ article.title }}</a></li>
+        {% endif %} 
+      {% endfor %}
+    {% endfor %}
+  </ul>
+  {% endif %}
+</div>
