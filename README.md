@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/Al-un/kb.svg?branch=master)](https://travis-ci.com/Al-un/kb)
+
 # Knowledge base
 
 Knowledge gathering place
