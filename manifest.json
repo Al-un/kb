@@ -1,0 +1,20 @@
+{
+  "name": "Al-un KB",
+  "short_name": "KB",
+  "icons": [
+    {
+      "src": "./assets/img/no_logo_192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/img/no_logo_512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#101111",
+  "theme_color": "#ead131"
+}

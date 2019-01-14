@@ -8,3 +8,9 @@ blockquote {
     color: #353012;
     border-left-width: 6px;
 }
+
+/* override rouge behaviours */
+
+pre.highlight {
+    overflow-x: auto;
+}

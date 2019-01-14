@@ -1,18 +1,24 @@
-<html>
+---
+layout: compress
+---
+
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="KB" />
 
     <title>{{ page.title }}</title>
+
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#ead131" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Styles -->
     <link
       rel="stylesheet"
       href="{{ 'assets/styles/styles.css' | relative_url }}"
-    />
-    <link
-      rel="stylesheet"
-      href="{{ 'assets/styles/syntax-monokai.css' | relative_url }}"
     />
     <!-- FontAwesome -->
     <link

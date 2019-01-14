@@ -67,3 +67,30 @@ sass:
   # - compressed
   # https://web-design-weekly.com/2014/06/15/different-sass-output-styles/
   style: compressed
+
+# ---------- PWA: https://github.com/lavas-project/jekyll-pwa
+pwa:
+  sw_src_filepath: service-worker.js # Optional
+  sw_dest_filename: sw-kb.js # Optional
+  dest_js_directory: assets/js # Required
+  precache_recent_posts_num: 5 # Optional
+  precache_glob_directory: / # Optional
+  precache_glob_patterns: # Optional
+    - "assets/**/*.{js,css,ttf,png}"
+    - "kb/**/*.html"
+    - "manifest.json"
+    - index.html
+  precache_glob_ignores: # Optional
+    - sw-register.js
+    - "fonts/**/*"
+
+# ---------- jekyll compress: https://github.com/penibelst/jekyll-compress-html
+compress_html:
+  clippings: []
+  comments: []
+  endings: []
+  ignore:
+    envs: []
+  blanklines: false
+  profile: false
+  startings: []
