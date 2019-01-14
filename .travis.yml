@@ -1,0 +1,46 @@
+language: ruby
+rvm:
+  - 2.5.1
+cache:
+  directories:
+    - vendor/bundle
+
+# Whitelist branches to avoid build when testing CircleCI
+branches:
+  only:
+    - master
+    - feature/travis
+
+env:
+  # $GITHUB_TOKEN
+  - secure: "qpSxFn4E5nUManDqvhlbkbwhnhe38sSTGLsC0ee2r0KE70IBPqavGq4oIxxUEwoMScydIkbReWaB1muVqQz/C9a/H70+BZ2zoxjfOhs3TFZqTUNsOEPyHyQfVmW4JexAC0w357T6eRAZJhYCoZXsvQFPYRV1IFkNSdOpuWtccKgeTDiqUPikmMT3hZdrHVhAq9u8mgJe21Jy9O4y5o3RPTWQysO+7MK+sGjcZiHYLqLJmah8O/mZ2qsD0Iu/cTN4fbeDwzlCllAwVrG+sx7f7ODLwnr1REIHcSSkVzNXvZA90KSMvVG1p9TG54KR+Kyw6gBWCtrljzRDykv4E5qtFymdtPyZuJJfpMqO/zPIXIVpv11jUe8J1ZGgYQg7rqK8cNrAC9Gk9z/uB+uM6taKi0oABxp2uTm/PkG5xCbEb7i5jwgmH873WsRxjc5mjnTTfa+7EhL3Wrj0dXEVbRGIbgBso+I/m4dHQ1rD2YqWtl+6JL57UXaiVit3Wp+AIylfRQbQmuLwlBNrCz20XlapCzluSJbohQexn35U7P/CBfhR5dBvVT2Bs8GG/qHFcUCH9DkEGeEfFLzxFDje41j5ZL8q8WlCTXTvfR8BHHKha4EjtbYqt6zLR8xgQfqJQZiyhvHz16WRyruGc201v4TTeH+uaYxhAr3a+LE3DimwdhM="
+  # SURGE_LOGIN
+  - secure: "0QwGzcxutDIwgj+7QsoupzJ9LdZFb9vJbNmOy+Ok/q+JRhrpRVqzy71hlo9dWnH6GQMW+3mSh6KkqoP1WM/5qznWtKUdaUTIjm/cQeNThV+sINltP0qxc8tJwtu+hUvXiggBbNZloq4wzrCEaItnRK1+QM/6JZbS0Yug7wRoOm+A7jKSf85JThgMJHPQpzLLKTwpWIN8oJulCfDMtIUO8Mr5MDL9xACyDGAuP2eOXa2wYac6TfS7Wme+OAJ+SsJJC8Qq/HHWMSMWlxyAc9UCk8FegJQfskdXqXJpgctl/kzaoN8BZaiAeuRLnxTrBuV95U7zrmWrB+RSZH6MsWqn5qVC08zfzBOuBrHI68W4Wo6rkq8bQKx5u2oCSiEupOZ36wxSaMdMhb+2RsPsuI0y8wJ5TwStMF9mZwoe4pAMXQFc7HdpiJD5QDwC5Max1ljQLvcopaoyxauCo6rsGdpcSchc5hq16kOTke7xYXXFi9eeC6vefX3dOgQj1DtCPbjW5ZiaBu928GyCtqx0+Knb2KYYne9Oj6/fl5Yeu8MoXhgfNL8KrsB8Dyh+NaZsaH1nKfnZNzYEAkV+bCFquTgMvbDL/Qh56ICwMA35ffgM3+dR2L9RRBmmL7IPJuOcpdgQwef7OuSQnMChJ3nOHSPKkgYQj0/nztmdqxO/mrgb59I="
+  # SURGE_TOKEN
+  - secure: "ngAV/UkDjMNg/JLmpXn3HkcVo46tpMKJFf1VNMpPBDRsM4g3beNTtbI/7cPVzSrrH/+xKC3uvyssr4+n2mhqkAQ2xV+/Gq1SXPRNgcC3BKzCN586wqlxaM+ZM1ET6gmtNER7QPXSwwoQ+HnrYBr9mDjUbtBrUa6C6NdKZZZAUi4aw+5joFltV3vpil7gYI6uN213dUxEpweDwz0TnrHw9aXMQ5mGLODtFlBAjkNLQbkALqhh0+ajjw5dy/GuIfJTUlwEX9ubfg6ujPQIGxSQC87Xombxxyrr90x+hCLQWMeQRCS7wC6rwsdVFg69996Bp9N3y+E4pj+MhUtvvwp0qDqZCcERUTplk0UG7PM4ib8KnlXC0VslACfR8Xdz12EijYZ/MaQ2Opmvc2hl5rnVlQecoEwIlWs6OOC3gKv+pFhD3ARfLa4oIvy5Clv6Gs/IfvBc9lRbtkUYQZ/37TamLAaniP2+XC/LiVgbLmUKbn/pv7F4K60YVF5/Rb8cZ+9VETEruHIXs9ctks8DMhaz+qgl/VIVc0q1MLE/83H+yT02zjTq0CpgmB1/xJahKlPjDLMYy2MSEEf9vkZOVlYfFkxROR5kN92y3ncP/ID1+z+9qm1Ry2wc9HthR22wxaVeyPkvnbMttG+sOho/HPJjrlAqpAG3N68/F7J2JNslyms="
+
+install:
+  - bundle install --path vendor/bundle
+
+script:
+  - JEKYLL_ENV=production bundle exec jekyll build
+
+deploy:
+  # Surge configuration
+  provider: surge
+  project: ./_site
+  domain: kb.al-un.fr
+  # Travis configuration
+  skip-cleanup: true
+  on:
+    branch: master
+
+notifications:
+  # Priority on Slack
+  email: false
+  # Slack notifications
+  slack:
+    rooms:
+      - secure: "R1ne5i6ETWDuzWf9cXbVtgwE7BYi8uSo1B0Z+LUw9mk08Le14v2mGIAC/r5p6QBS29HyAue+pBI/AtUewATYbK7k3jT71rPj1NC4pyMj7ikS2E78edPviJ4W2RmsvipgWzniLzMPchRpb/g85+RBJX2TYIddAJ4z8hy0DYas2+tX4pXfUWj5EaII0fgzucLehF6FvCK9rpt5GxTt+ISOVEV9b5l/DPIgCctOOKoC2nWpodl3rC76xryAmvfqUYt93AYh1ZDbowpMpksRZQLfF32Nh9dw4CDdht1/co1h8CuF2zEw+LwZ3oBP3dssk6aPgxC00H9mqc0RbhkjvG88SS+qt8smwksyV8IXqD9zlDp1rMaY6FlQhBS8q6wFbW8Xz82JW1v3kT4GEl2n6ItRJ43X7sC0ASiCFaZM/yp2DxQEXVw/UU7MYexlXfjcC4XbLbocsc0EiN8kb7hkSnIujOuyVDBOJS+zVb0iFT4jB80wo7Sam49RJo8s+DjP8/XuzzYkWjmkkmXVZEe1jK/SdPbAIFuYZ4CoYp7pwt9+EIODpiJlgfVtZ3Jz6VwBjB6vSfsHixxlye5qGeKfNON2wlGClWXkbPXEYSqSD91dk+/XWdGo8dPVZiUsfSH0N4Xuv/Gdb1+rw9jivL/VZvrVfVCjdJCG3Tiuvq5teQOl1nc="
+    on_success: always # switch to "change": https://docs.travis-ci.com/user/notifications#changing-notification-frequency
+    on_failure: always
