@@ -13,5 +13,6 @@ powershell: PowerShell
 rails: Rails
 react: ReactJS
 travis: Travis CI
+surge: Surge.sh
 vscode: Visual Studio Code
 vue: Vue.js
