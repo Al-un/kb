@@ -21,7 +21,7 @@ const configureWorkbox = () => {
   // Cache naming
   workbox.core.setCacheNameDetails({
     prefix: "kb",
-    suffix: "v1"
+    suffix: "v1.1"
   });
 
   // let Service Worker take control of pages ASAP
