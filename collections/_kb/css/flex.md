@@ -47,5 +47,42 @@ Let's have a simple sticky left panel with a standard main content:
 ```
 
 Sources:
+
 - [Sitepoint introduction to `position: sticky;`](https://www.sitepoint.com/css-position-sticky-introduction-polyfills/)
 - [StackOverflow](https://stackoverflow.com/questions/44446671/my-position-sticky-element-isnt-sticky-when-using-flexbox)
+
+## Pinterest-like multi-column layout
+
+> _behold_ the power of `column-count`
+
+**HTML**:
+
+```html
+<div class="container">
+  <div class="item">...</div>
+  <div class="item">...</div>
+  <div class="item">...</div>
+  <div class="item">...</div>
+  <div class="item">...</div>
+  <div class="item">...</div>
+</div>
+```
+
+**SCSS**:
+
+```scss
+.container {
+  column-count: 3;
+  .item {
+    width: 100%;
+  }
+}
+```
+
+- Check [W3C specs](https://www.w3.org/TR/css-multicol-1/)
+- [W3C documentation](https://www.w3schools.com/cssref/css3_pr_column-count.asp)
+- [Tutorial](https://w3bits.com/css-masonry/)
+
+Related attributes ([w3c list](https://www.w3schools.com/css/css3_multiple_columns.asp)):
+
+- `column-gap`: gutter size

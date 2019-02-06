@@ -27,6 +27,10 @@ tags: [vscode, ide, extensions]
 
 - [GitLens !!](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
 
+# Go
+
+- [vscode-go](https://marketplace.visualstudio.com/items?itemName=ms-vscode.Go)
+
 # Ruby
 
 - [Ruby](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby)
