@@ -6,7 +6,8 @@ aws: AWS
 circleci: CircleCI
 css: CSS / SASS
 git: Git
-go: Go(lang)
+go: Go
+heroku: Heroku
 javascript: JavaScript
 jekyll: Jekyll
 markdown: Markdown
@@ -14,7 +15,7 @@ mysql: MySQL
 powershell: PowerShell
 rails: Rails
 react: ReactJS
-travis: Travis CI
 surge: Surge.sh
+travis: Travis CI
 vscode: Visual Studio Code
 vue: Vue.js
