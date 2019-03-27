@@ -31,6 +31,10 @@ tags: [vscode, ide, extensions]
 
 - [vscode-go](https://marketplace.visualstudio.com/items?itemName=ms-vscode.Go)
 
+# Markdown
+
+
+
 # Ruby
 
 - [Ruby](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby)
@@ -87,6 +91,7 @@ Sources:
 
 # Misc
 
+- [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 - **dotenv** Tried https://github.com/zaynali53/DotENV
   - => removed
 
