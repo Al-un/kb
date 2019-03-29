@@ -12,6 +12,7 @@ javascript: JavaScript
 jekyll: Jekyll
 markdown: Markdown
 mysql: MySQL
+pgsql: PostgreSQL
 powershell: PowerShell
 rails: Rails
 react: ReactJS
