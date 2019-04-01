@@ -18,5 +18,6 @@ rails: Rails
 react: ReactJS
 surge: Surge.sh
 travis: Travis CI
+ubuntu: Ubuntu
 vscode: Visual Studio Code
 vue: Vue.js
