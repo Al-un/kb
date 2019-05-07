@@ -1,5 +1,5 @@
 ---
-tech: Ubuntu
+tech: ubuntu
 title: Python & Django
 ---
 
