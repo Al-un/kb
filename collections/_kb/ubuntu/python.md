@@ -5,8 +5,7 @@ title: Python & Django
 
 Ubuntu LTS comes with Python pre-installed but for Docker or bare-metal
 
-## Install Python
-
+## Install Python (easy way)
 
 Install pre-requisites (from <https://github.com/pyenv/pyenv/wiki/Common-build-problems>):
 
@@ -23,13 +22,40 @@ sudo apt install python3
 sudo apt install python3-pip
 ```
 
+## Install Python (manual way)
+
+From <https://www.quora.com/How-can-one-install-a-specific-version-of-Python-in-Ubuntu>:
+
+```sh
+# Dependencies
+sudo apt-get install build-essential checkinstall
+sudo apt-get install libreadline-gplv2-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev
+
+# Download
+cd ~/Downloads/
+wget https://www.python.org/ftp/python/2.7.12/Python-2.7.12.tgz
+
+# Install
+tar -xvf Python-<version>.tgz
+cd Python-<version> 
+./configure
+make
+sudo checkinstall
+```
+
+If required, create a symlink:
+
+```sh
+ln -s /usr/local/bin/python3.5 /usr/bin/python
+```
+
 ## Pipenv
 
 Install pipenv:
 
 ```sh
 pip3 install pipenv
-```
+````
 
 If necessary by `pipenv`:
 
