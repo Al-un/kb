@@ -5,6 +5,7 @@ angular: Angular
 aws: AWS
 circleci: CircleCI
 css: CSS / SASS
+docker: Docker
 git: Git
 go: Go
 heroku: Heroku
