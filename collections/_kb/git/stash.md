@@ -27,3 +27,10 @@ git stash apply
 # Apply a specific stash: in this case, the third one
 git stash apply stash@{3}
 ```
+
+## Stash delete
+
+```sh
+# Drop the last stash
+git stash drop
+```
