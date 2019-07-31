@@ -5,7 +5,7 @@ title: Content versioning
 
 ## Commit
 
-```shell
+```sh
 # list staged changes and un-staged changes
 git status
 # add all files
@@ -26,7 +26,7 @@ git commit --allow-empty -m "commit message"
 
 ### Amend commit
 
-Something is missing in the last commit? Just [_amend_ it](https://www.atlassian.com/git/tutorials/rewriting-history#git-commit--amend). **Do not rewrite public branches**.
+Something is missing in the last commit? Just [_amend_ it](https://www.atlassian.com/git/tutorials/rewriting-history#git-commit--amend). **Do not rewrite public branches**. Amending a commit will rewrite the commit by replacing the old one with the new one
 
 ```sh
 # "--no-edit" keeps the initial commit message. Otherwise a
